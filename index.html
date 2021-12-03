@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>ForthWeGo Gamifications - Slot Machine</title>
+		 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="css/font-awesome/css/all.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/game.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Righteous&display=swap" rel="stylesheet"> 
+	</head>
+	
+	<body>
+	<style>
+	body{
+background-image:url('img/store-back.jpg') !important;
+	background-position:center;
+	background-size:cover;
+	}
+	.body-night{
+	    background-color: #005171;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='540' height='450' viewBox='0 0 1080 900'%3E%3Cg fill-opacity='0.05'%3E%3Cpolygon fill='%23444' points='90 150 0 300 180 300'/%3E%3Cpolygon points='90 150 180 0 0 0'/%3E%3Cpolygon fill='%23AAA' points='270 150 360 0 180 0'/%3E%3Cpolygon fill='%23DDD' points='450 150 360 300 540 300'/%3E%3Cpolygon fill='%23999' points='450 150 540 0 360 0'/%3E%3Cpolygon points='630 150 540 300 720 300'/%3E%3Cpolygon fill='%23DDD' points='630 150 720 0 540 0'/%3E%3Cpolygon fill='%23444' points='810 150 720 300 900 300'/%3E%3Cpolygon fill='%23FFF' points='810 150 900 0 720 0'/%3E%3Cpolygon fill='%23DDD' points='990 150 900 300 1080 300'/%3E%3Cpolygon fill='%23444' points='990 150 1080 0 900 0'/%3E%3Cpolygon fill='%23DDD' points='90 450 0 600 180 600'/%3E%3Cpolygon points='90 450 180 300 0 300'/%3E%3Cpolygon fill='%23666' points='270 450 180 600 360 600'/%3E%3Cpolygon fill='%23AAA' points='270 450 360 300 180 300'/%3E%3Cpolygon fill='%23DDD' points='450 450 360 600 540 600'/%3E%3Cpolygon fill='%23999' points='450 450 540 300 360 300'/%3E%3Cpolygon fill='%23999' points='630 450 540 600 720 600'/%3E%3Cpolygon fill='%23FFF' points='630 450 720 300 540 300'/%3E%3Cpolygon points='810 450 720 600 900 600'/%3E%3Cpolygon fill='%23DDD' points='810 450 900 300 720 300'/%3E%3Cpolygon fill='%23AAA' points='990 450 900 600 1080 600'/%3E%3Cpolygon fill='%23444' points='990 450 1080 300 900 300'/%3E%3Cpolygon fill='%23222' points='90 750 0 900 180 900'/%3E%3Cpolygon points='270 750 180 900 360 900'/%3E%3Cpolygon fill='%23DDD' points='270 750 360 600 180 600'/%3E%3Cpolygon points='450 750 540 600 360 600'/%3E%3Cpolygon points='630 750 540 900 720 900'/%3E%3Cpolygon fill='%23444' points='630 750 720 600 540 600'/%3E%3Cpolygon fill='%23AAA' points='810 750 720 900 900 900'/%3E%3Cpolygon fill='%23666' points='810 750 900 600 720 600'/%3E%3Cpolygon fill='%23999' points='990 750 900 900 1080 900'/%3E%3Cpolygon fill='%23999' points='180 0 90 150 270 150'/%3E%3Cpolygon fill='%23444' points='360 0 270 150 450 150'/%3E%3Cpolygon fill='%23FFF' points='540 0 450 150 630 150'/%3E%3Cpolygon points='900 0 810 150 990 150'/%3E%3Cpolygon fill='%23222' points='0 300 -90 450 90 450'/%3E%3Cpolygon fill='%23FFF' points='0 300 90 150 -90 150'/%3E%3Cpolygon fill='%23FFF' points='180 300 90 450 270 450'/%3E%3Cpolygon fill='%23666' points='180 300 270 150 90 150'/%3E%3Cpolygon fill='%23222' points='360 300 270 450 450 450'/%3E%3Cpolygon fill='%23FFF' points='360 300 450 150 270 150'/%3E%3Cpolygon fill='%23444' points='540 300 450 450 630 450'/%3E%3Cpolygon fill='%23222' points='540 300 630 150 450 150'/%3E%3Cpolygon fill='%23AAA' points='720 300 630 450 810 450'/%3E%3Cpolygon fill='%23666' points='720 300 810 150 630 150'/%3E%3Cpolygon fill='%23FFF' points='900 300 810 450 990 450'/%3E%3Cpolygon fill='%23999' points='900 300 990 150 810 150'/%3E%3Cpolygon points='0 600 -90 750 90 750'/%3E%3Cpolygon fill='%23666' points='0 600 90 450 -90 450'/%3E%3Cpolygon fill='%23AAA' points='180 600 90 750 270 750'/%3E%3Cpolygon fill='%23444' points='180 600 270 450 90 450'/%3E%3Cpolygon fill='%23444' points='360 600 270 750 450 750'/%3E%3Cpolygon fill='%23999' points='360 600 450 450 270 450'/%3E%3Cpolygon fill='%23666' points='540 600 630 450 450 450'/%3E%3Cpolygon fill='%23222' points='720 600 630 750 810 750'/%3E%3Cpolygon fill='%23FFF' points='900 600 810 750 990 750'/%3E%3Cpolygon fill='%23222' points='900 600 990 450 810 450'/%3E%3Cpolygon fill='%23DDD' points='0 900 90 750 -90 750'/%3E%3Cpolygon fill='%23444' points='180 900 270 750 90 750'/%3E%3Cpolygon fill='%23FFF' points='360 900 450 750 270 750'/%3E%3Cpolygon fill='%23AAA' points='540 900 630 750 450 750'/%3E%3Cpolygon fill='%23FFF' points='720 900 810 750 630 750'/%3E%3Cpolygon fill='%23222' points='900 900 990 750 810 750'/%3E%3Cpolygon fill='%23222' points='1080 300 990 450 1170 450'/%3E%3Cpolygon fill='%23FFF' points='1080 300 1170 150 990 150'/%3E%3Cpolygon points='1080 600 990 750 1170 750'/%3E%3Cpolygon fill='%23666' points='1080 600 1170 450 990 450'/%3E%3Cpolygon fill='%23DDD' points='1080 900 1170 750 990 750'/%3E%3C/g%3E%3C/svg%3E");
+	}
+	.body-day{
+	  background-color: #f4d2d2;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='540' height='450' viewBox='0 0 1080 900'%3E%3Cg fill-opacity='0.03'%3E%3Cpolygon fill='%23444' points='90 150 0 300 180 300'/%3E%3Cpolygon points='90 150 180 0 0 0'/%3E%3Cpolygon fill='%23AAA' points='270 150 360 0 180 0'/%3E%3Cpolygon fill='%23DDD' points='450 150 360 300 540 300'/%3E%3Cpolygon fill='%23999' points='450 150 540 0 360 0'/%3E%3Cpolygon points='630 150 540 300 720 300'/%3E%3Cpolygon fill='%23DDD' points='630 150 720 0 540 0'/%3E%3Cpolygon fill='%23444' points='810 150 720 300 900 300'/%3E%3Cpolygon fill='%23FFF' points='810 150 900 0 720 0'/%3E%3Cpolygon fill='%23DDD' points='990 150 900 300 1080 300'/%3E%3Cpolygon fill='%23444' points='990 150 1080 0 900 0'/%3E%3Cpolygon fill='%23DDD' points='90 450 0 600 180 600'/%3E%3Cpolygon points='90 450 180 300 0 300'/%3E%3Cpolygon fill='%23666' points='270 450 180 600 360 600'/%3E%3Cpolygon fill='%23AAA' points='270 450 360 300 180 300'/%3E%3Cpolygon fill='%23DDD' points='450 450 360 600 540 600'/%3E%3Cpolygon fill='%23999' points='450 450 540 300 360 300'/%3E%3Cpolygon fill='%23999' points='630 450 540 600 720 600'/%3E%3Cpolygon fill='%23FFF' points='630 450 720 300 540 300'/%3E%3Cpolygon points='810 450 720 600 900 600'/%3E%3Cpolygon fill='%23DDD' points='810 450 900 300 720 300'/%3E%3Cpolygon fill='%23AAA' points='990 450 900 600 1080 600'/%3E%3Cpolygon fill='%23444' points='990 450 1080 300 900 300'/%3E%3Cpolygon fill='%23222' points='90 750 0 900 180 900'/%3E%3Cpolygon points='270 750 180 900 360 900'/%3E%3Cpolygon fill='%23DDD' points='270 750 360 600 180 600'/%3E%3Cpolygon points='450 750 540 600 360 600'/%3E%3Cpolygon points='630 750 540 900 720 900'/%3E%3Cpolygon fill='%23444' points='630 750 720 600 540 600'/%3E%3Cpolygon fill='%23AAA' points='810 750 720 900 900 900'/%3E%3Cpolygon fill='%23666' points='810 750 900 600 720 600'/%3E%3Cpolygon fill='%23999' points='990 750 900 900 1080 900'/%3E%3Cpolygon fill='%23999' points='180 0 90 150 270 150'/%3E%3Cpolygon fill='%23444' points='360 0 270 150 450 150'/%3E%3Cpolygon fill='%23FFF' points='540 0 450 150 630 150'/%3E%3Cpolygon points='900 0 810 150 990 150'/%3E%3Cpolygon fill='%23222' points='0 300 -90 450 90 450'/%3E%3Cpolygon fill='%23FFF' points='0 300 90 150 -90 150'/%3E%3Cpolygon fill='%23FFF' points='180 300 90 450 270 450'/%3E%3Cpolygon fill='%23666' points='180 300 270 150 90 150'/%3E%3Cpolygon fill='%23222' points='360 300 270 450 450 450'/%3E%3Cpolygon fill='%23FFF' points='360 300 450 150 270 150'/%3E%3Cpolygon fill='%23444' points='540 300 450 450 630 450'/%3E%3Cpolygon fill='%23222' points='540 300 630 150 450 150'/%3E%3Cpolygon fill='%23AAA' points='720 300 630 450 810 450'/%3E%3Cpolygon fill='%23666' points='720 300 810 150 630 150'/%3E%3Cpolygon fill='%23FFF' points='900 300 810 450 990 450'/%3E%3Cpolygon fill='%23999' points='900 300 990 150 810 150'/%3E%3Cpolygon points='0 600 -90 750 90 750'/%3E%3Cpolygon fill='%23666' points='0 600 90 450 -90 450'/%3E%3Cpolygon fill='%23AAA' points='180 600 90 750 270 750'/%3E%3Cpolygon fill='%23444' points='180 600 270 450 90 450'/%3E%3Cpolygon fill='%23444' points='360 600 270 750 450 750'/%3E%3Cpolygon fill='%23999' points='360 600 450 450 270 450'/%3E%3Cpolygon fill='%23666' points='540 600 630 450 450 450'/%3E%3Cpolygon fill='%23222' points='720 600 630 750 810 750'/%3E%3Cpolygon fill='%23FFF' points='900 600 810 750 990 750'/%3E%3Cpolygon fill='%23222' points='900 600 990 450 810 450'/%3E%3Cpolygon fill='%23DDD' points='0 900 90 750 -90 750'/%3E%3Cpolygon fill='%23444' points='180 900 270 750 90 750'/%3E%3Cpolygon fill='%23FFF' points='360 900 450 750 270 750'/%3E%3Cpolygon fill='%23AAA' points='540 900 630 750 450 750'/%3E%3Cpolygon fill='%23FFF' points='720 900 810 750 630 750'/%3E%3Cpolygon fill='%23222' points='900 900 990 750 810 750'/%3E%3Cpolygon fill='%23222' points='1080 300 990 450 1170 450'/%3E%3Cpolygon fill='%23FFF' points='1080 300 1170 150 990 150'/%3E%3Cpolygon points='1080 600 990 750 1170 750'/%3E%3Cpolygon fill='%23666' points='1080 600 1170 450 990 450'/%3E%3Cpolygon fill='%23DDD' points='1080 900 1170 750 990 750'/%3E%3C/g%3E%3C/svg%3E");}
+	/**.product{
+		height:30px;
+		width:30px;
+		background:#666;
+		border-radius:50%;
+		float:left;
+		margin-left:10px;
+		animated-cartoon-blue-sky
+	}**/
+	.canvas-wrap{
+	overflow:hidden;
+	}
+	
+	.canvas-row{
+	height:80vh;
+	overflow:hidden;
+	padding:5px;
+	background-image:url('sky.jpg') !important;
+		background-size:cover;
+		background-position:center;
+	width:100%;
+	position:relative;
+	border-radius:10px;
+	box-shadow:0 2px 4px rgba(0,0,0,0.3);
+	background-color:rgba(0,0,0,0.5) !important;
+	transition:0.5s ease-in-out;
+	}
+	.canvas{
+	position:relative;
+	transform-origin:bottom;
+	transform-style:preserve-3d;
+	background-color:rgba(0,0,0,0.5) !important;
+	transform: perspective(500px) rotateX(17deg);
+	margin:0 auto;
+	margin-top:30px;
+	left:0;
+	right:0;
+	}
+	.layer:nth-child(1){
+	margin-top:0px;
+	}
+	.canvas:after{
+	content:'';
+	position:absolute;
+	border-top:3px solid #ccc;
+	width:100%;
+	height:250px;
+	background:rgba(0, 0, 0,0.6) !important;
+	background-image:url('img/front.jpg') !important;
+	background-position:center;
+	background-size:cover;
+	bottom:-240px;
+	transform-origin:top;
+	z-index:400;
+	transform: perspective(40px) rotateX(358.7deg) !important;
+	}
+	
+	/**.shadow{
+	position:absolute;
+	bottom:-15px;
+	left:48%;
+	width:100%;
+	transform:translateX(-40%);
+	height:5px;
+	background:linear-gradient(rgba(0,0,0,0.20), transparent);
+	}**/
+	
+	.canvas-row{
+	padding:10px;
+	padding-bottom:20px;
+	background-image:url('img/store-back.jpg') !important;
+	background-position:center;
+	background-size:cover;
+	}
+	.next,.next i{
+	color:#fff;
+	}
+	.next i{
+	margin-top:5px;
+	}
+	.access{
+	transform:translateX(-100%);
+	transform:translateY(-100%);
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	background-color: #ffffff;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 800'%3E%3Cg fill-opacity='0.03'%3E%3Ccircle fill='%23ffffff' cx='400' cy='400' r='600'/%3E%3Ccircle fill='%23f8d2c8' cx='400' cy='400' r='500'/%3E%3Ccircle fill='%23eba593' cx='400' cy='400' r='400'/%3E%3Ccircle fill='%23d97861' cx='400' cy='400' r='300'/%3E%3Ccircle fill='%23c34a31' cx='400' cy='400' r='200'/%3E%3Ccircle fill='%23a90000' cx='400' cy='400' r='100'/%3E%3C/g%3E%3C/svg%3E");
+background-attachment: fixed;
+background-size: cover;
+	
+	}
+	.form-wrap{
+	text-align:center;
+	width:80%;
+	}
+	.logo{
+	 width:180px;
+	 height:80px;
+	background-image:url('WinnerCart.png');
+	background-position:center;
+	background-size:cover;
+	margin:0 auto;
+	margin-bottom:20px;
+	}
+	.close-game .logo{
+	    float:right;
+	    margin-right:43px;
+	}
+	.canvas{
+	background:#fff;
+	background-position:center;
+	background-size:cover;
+	/**transform:translateX(120%);**/
+	position:relative;
+	padding-right:0;
+	}
+	
+	#container{
+	background:#f1f1f1;
+	display:flex;
+	justify-content:center;
+	height:150px;
+	align-items:center;
+	/**border-bottom:3px solid #ccc;
+	box-shadow: inset 5px 5px 5px rgba(0,0,0,0.2),
+	inset -5px -5px 15px rgba(255,255,255,0.1);
+	padding:10px;
+	border-radius:10px;**/
+	flex-direction:column;
+	z-index:8;
+	position:absolute;
+	width:98%;
+	left:0;
+	right:0;
+	margin:0 auto;
+	border-radius:10px;
+	}
+	.dragitem{
+		display:block;
+		height:90px;
+		width:90px;
+		position:absolute;
+		bottom:0;
+		left:0;
+		right:0;
+		margin:0 auto;
+		margin-left:20px;
+		margin-bottom:20px;
+		color:#fff;
+		background-image:url('cart90.png');
+		background-size:cover;
+		background-position:center;
+		z-index:9;
+	}
+	.change-direction{
+	transform:rotateY(180deg);
+	}
+	.hit-wall-left{
+	transform:rotate(20deg) rotateY(180deg);
+	}
+	.hit-wall-right{
+	transform:rotate(-20deg) rotateY(0deg);
+	}
+	
+
+	.opacity{
+	    opacity:1;
+	}
+	@keyframes celebrate{
+	0%,20%{
+	transform:rotate(90deg);
+	}50%%{
+	transform:scale(360deg);
+	}
+	}
+	
+	
+	.close-game{
+	 position:absolute;
+	 width:98%;
+	 height:98%;
+	 border-radius:10px;
+	 z-index:90;
+	 background:#a90000;
+	 background-position:center;
+	   background-size:cover;
+	 left:0;
+	 right:0;
+	 margin:0 auto;
+	 display:flex;
+	 flex-direction:column;
+	 justify-content:center;
+	 align-items:center;
+	 font-weight:bold;
+	 color:#fff;
+	}
+	.start-game-wrap{
+	    background-image:url('DesktopWcart.jpg');
+	    position:absolute;
+	    width:98%;
+	 height:98%;
+	 border-radius:10px;
+	 z-index:95;
+	 background-position:center;
+	   background-size:cover;
+	 left:0;
+	 right:0;
+	 margin:0 auto;
+	}
+	
+	.play-wrap{
+	    width:200px;
+	    float:right;
+	    margin-right:50px;
+	    margin-top:150px;
+	    min-height:100px;
+	}
+	
+	.info-board div{
+		width:33.3%;
+		height:100%;
+		text-align:center;
+		padding-top:13px;
+		font-size:20px;
+		border-left:1px solid #666;
+		border-radius:3px;
+		box-shadow: inset 3px 3px 3px 1px rgba(0,0,0,0.2),
+	inset -5px -5px 15px rgba(255,255,255,0.1);
+	}
+	
+	.collect-scores{
+		color:#666;
+	}
+	.collect-scores .score{
+		font-size:17px;
+	}
+	.collect-win{
+	color:#666;
+	}
+	
+	.collect-seven{
+	color:#666;
+	}
+	
+	.game-scores i, .sound-wrap-i{
+		font-size:20px;
+		color:#fff;
+		display:inline-block;
+		box-shadow:0 2px 4px rgba(0,0,0,0.4);
+		padding:3px;
+		padding-top:5px;
+		border-radius:50%;
+		margin-right:5px;
+		margin-left:5px;
+	}
+	.sound-wrap-i{
+	background:#ed544a;
+	}
+	.btn{
+	box-shadow:0 2px 4px rgba(0,0,0,0.4);
+	background:#0048ba;
+	border:1px solid #0048ba;
+	}
+	.sound{
+	cursor:pointer;
+	margin-top:10px;
+	}
+	.sound:hover{
+	font-size:22px;
+	color:#666;
+	}
+	
+	.alert{
+	background:red;
+	font-weight:bold;
+	color:#fff;
+	width:70%;
+	min-height:20px;
+	display:block;
+	margin:0 auto;
+	margin-bottom:10px;
+	}
+	.loading{
+	position:absolute;
+	height:100%;
+	width:100%;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	font-size:45px;
+	text-align:center;
+	padding-top:7px;
+	display:none;
+	background:rgba(255,255,255,0.7);
+	}
+	.loading i{
+	display:block;
+	margin-top:40%;
+	color:#ccc;
+	}
+	
+	.show{
+	display:block;
+	}
+	.rules{
+	height:80%;
+	width:80%;
+	overflow:auto;
+	left:0;
+	right:0;
+	margin: 0 auto;
+	margin-top:50px;
+	position:absolute;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 800'%3E%3Cg fill-opacity='0.03'%3E%3Ccircle fill='%23ffffff' cx='400' cy='400' r='600'/%3E%3Ccircle fill='%23f8d2c8' cx='400' cy='400' r='500'/%3E%3Ccircle fill='%23eba593' cx='400' cy='400' r='400'/%3E%3Ccircle fill='%23d97861' cx='400' cy='400' r='300'/%3E%3Ccircle fill='%23c34a31' cx='400' cy='400' r='200'/%3E%3Ccircle fill='%23a90000' cx='400' cy='400' r='100'/%3E%3C/g%3E%3C/svg%3E");
+background-attachment: fixed;
+background-size: cover;
+transition:1s;
+	}
+	.rules li{
+	background:rgba(0,0,0,0.5);
+	color:#fff;
+		}
+		.close{
+		width:60px;
+		height:30px;
+		background:#ccc;
+		color:#666;
+		font-weight:bold;
+		font-size:12px;
+		position:absolute;
+		display:block;
+		text-align:center;
+		padding-top:8px;
+		right:0;
+		bottom:0;
+		z-index:50;
+		margin-bottom:-5px;
+		margin-right:-5px;
+		opacity:1
+		}
+
+	
+		.instruction{
+		background:rgba(0,0,0,0.6);
+		position:absolute;
+		top:0;
+		 width:90%;
+		min-height:40%;
+		 left:0;
+		 right:0;
+		margin:0 auto;
+		text-align:left;
+		 margin-top:40px;
+		 z-index:30;
+		 display:block;
+		 padding:10px 10px 20px 10px;
+		}
+		.list-group-item{
+		border:none;
+		font-size:12px;
+		border-bottom:1px solid #f1f1f1;
+		color:#fff;
+		padding:5px;
+		background:rgba(255,255,255,0);
+		}
+		h3,.game-over .warning{
+			color:#666;
+		}
+	
+		.sound,.time-change{
+			height:30px;
+			width:30px;
+			background:rgba(255,255,255,0.7);
+			color:#666;
+			border-radius:50%;
+			position:absolute;
+			top:0;
+			right:0;
+			margin:10px 10px 0 0;
+			z-index:50;
+			padding-top:5px;
+			font-size:20px;
+			text-align:center;
+		}
+		.sound{
+		margin:10px 50px 0 0;
+		}
+	
+
+		.slot{
+		height:60px;
+		overflow:hidden;
+		box-shadow: inset 5px 5px 5px 2px rgba(0,0,0,0.2),
+	inset 5px 5px 15px rgba(255,255,255,0.1);
+	padding:10px;
+	overflow:hidden;
+		}
+		.slot ul{
+		padding:0;
+		transition:0.1s ease-in-out;
+		}
+		.slot-list{
+			list-style:none;
+			background:#ccc;
+			border-bottom:2px solid #ccc;
+			transition:0.05s ease-in-out;
+		}
+		.slot-list img{
+		width:100%;
+		height:100%;
+		object-fit:cover;
+		padding:10px;
+		background:#fff;
+		}
+		.slidecontainer{
+		height:60px;
+		width:200px;
+		position:absolute;
+		margin-top:50px;
+		right:0;
+		margin-right:40px;
+		}
+		
+
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 100px; 
+  height: 15px;
+  background: red; 
+  border:2px solid rgba(0,0,0,0.7);
+  border-radius:2px;
+  outline: none;
+  opacity: 1; 
+}
+
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 45px !important;
+  height: 45px !important;
+  background-image:url('img/stone.jpg') !important;
+	background-position:center;
+	background-size:cover;
+  cursor: pointer;
+  border-radius:50%;
+  border:1px solid #000;
+}
+
+.slider::-moz-range-thumb {
+  width: 45px; 
+  height: 45px;
+  background: #0048ba;
+  cursor: pointer;
+  border-radius:50%;
+  background-image:url('img/stone.jpg') !important;
+  background-position:center;
+	background-size:cover;
+  margin-left:10px;
+  border:2px solid #000;
+}
+
+.slot-wraps{
+padding:5px;
+background:rgba(0,0,0,0.5);
+position:relative;
+}
+.wrb{
+display:flex;
+justify-content:center;
+align-items:center;
+width:100%;
+z-index:300;
+}
+.main-row .row{
+display:flex;
+flex-wrap:wrap;
+justify-content:speace-between;
+align-items:center;
+
+}
+.row{
+margin:0 auto;
+}
+.containter-fluid{
+float:left;
+}
+.button-wrap{
+position:relative;
+}
+
+.stop,.stop:focus,.stop:hover{
+margin:0 auto;
+margin-top:8px;
+  background-image:url('img/button.jpg') !important;
+	background-position:center;
+	background-size:cover;
+height:60px;
+width:60px;
+border-radius:50%;
+border:none;
+z-index:400;
+}
+.slider-side{
+background:rgba(0,0,0,0.5);
+}
+.container-fluid{
+float:left;
+}
+audio{
+display:none;
+}
+.screen{
+	width:100%;
+	height:100%;
+	position:absolute;
+	background:rgba(0,0,0,0.1);
+	z-index:3;
+	top:0;
+	}
+	.slot-wraps .screen{
+	height:80%;
+	}
+	.info-board{
+	height:50px;
+	width:100%;
+	background:#fff;
+	transform-origin:bottom;
+	z-index:400;
+	transform: perspective(40px) rotateX(358.9deg);
+	border-radius:5px 5px 0 0;
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+	margin:0 auto;
+	margin-top:-10px;
+	border-bottom:2px solid #ccc;
+	}
+	.lucky-seven,.win-wrap{
+	height:30px;
+	width:30px;
+	display:inline-block;
+	border-radius:50%;
+	font-weight:bold;
+	text-align:center;
+	background:purple;
+	margin-right:4px;
+	color:7;
+	background:gold;
+	box-shadow:2px 2px 4px rgba(0,0,0,0.5);
+	}
+	.win-wrap{
+	height:30px;
+	width:40px;
+	background:green;
+	padding:2px;
+	color:#fff;
+	padding-top:0px;
+	border-radius:5px;
+	margin-right:4px;
+	font-weight:normal;
+	font-size:16px;
+	height:25px;
+	}
+@media only screen and (max-width:769px){
+.stop,.stop:focus,.stop:hover{
+height:40px;
+width:40px;
+margin-top:5px;
+}
+.slot-wraps .screen{
+	height:80%;
+	}
+	.info-board{
+	transform: perspective(40px) rotateX(358.7deg);
+	}
+	.slot-list img{
+		padding:5px;
+		}
+		.canvas-wrap{
+		padding:0;
+		}
+		.container{
+		width:100%;
+		padding:0;
+		float:left;
+		}
+		
+		.canvas{
+	margin-top:100px !important;
+	}
+	.slidecontainer{
+margin-right:-20px;
+
+}
+
+.canvas:after{
+	transform: perspective(40px) rotateX(358.7deg)!important;
+	}
+	.stage-container,.canvas-row{
+	padding:0;
+	}
+	}
+	.start{
+	position:absolute;
+	background:red;
+	color:#fff;
+	border:1px solid #000;
+	outline:none;
+	transform:translateY(-7px);
+	font-weight:bold;
+	}
+	.fa-coins{
+	font-size:25px;
+	color:gold;
+	}
+	.warning-board{
+	height:100%;
+	width:100% !important;
+	z-index:10;
+	background:gold;
+	color:#fff;
+	text-align:center;
+	position:absolute;
+	opacity:0;
+	transition:0.4s ease-in-out;
+	box-shadow: inset 5px 5px 5px rgba(0,0,0,0.2),
+	inset -5px -5px 15px rgba(255,255,255,0.1);
+	font-size:14px;
+	}
+	</style>
+		<div class="container-fluid">
+		<div class="container">
+			<div class="row mt-5 main-row">
+				<div class="col-sm-2 col-md-2 col-12"></div>
+				<div class="col-sm-8 col-md-8 col-12 stage-container">
+				<div class="canvas-row">
+				<div class="canvas row">
+				<div class="info-board">
+				<div class="warning-board">
+				<div class="screen"></div>
+				</div>
+				<div class="collect-scores collect-deduct">
+				<div class="screen"></div>
+				<i class="fa fa-coins"></i> <span class="score">0</span></div>
+				<div class="collect-win">
+				<div class="screen"></div>
+				<span class="win-wrap">Win</span> <span class="win">0</span></div>
+				<div class="collect-seven">
+				<div class="screen"></div>
+				<span class="lucky-seven">7</span> <span class="seven-num">0</span>
+				</div>
+				</div>
+					<div class="col-sm-4 col-md-4 col-4 slot-wraps">
+					<div class="screen"></div>
+						<div class="card slot">
+						<ul></ul></div>
+						<div class="wrb" data-stop="0">
+						<div class="stop btn btn-danger" data-stop="0">S</div>
+						</div>
+					</div>
+					<div class="col-sm-4 col-md-4 col-4 slot-wraps">
+					<div class="screen"></div>
+						<div class="card slot"><ul></ul></div>
+						<div class="wrb" data-stop="1">
+						<div class="stop btn btn-danger" data-stop="1">S</div>
+						</div>
+					</div>
+					<div class="col-sm-4 col-md-4 col-4 slot-wraps">
+					<div class="screen"></div>
+						<div class="card slot"><ul></ul></div>
+						<div class="wrb" data-stop="2">
+						<div class="stop btn btn-danger" data-stop="2">S</div>
+						</div>
+					</div>
+				<div class="shadow">
+				</div>
+				</div>
+				
+				<!--<div class="button-wrap row">
+				<div class="col-sm-4 col-md-4 col-4 wrb">
+				<div class="stop btn btn-danger" data-stop="0">S</div>
+				</div>
+				<div class="col-sm-4 col-md-4 col-4 wrb">
+				
+				</div>
+				<div class="col-sm-4 col-md-4 col-4 wrb">
+				<div class="stop btn btn-danger" data-stop="2">S</div>
+				</div>
+				
+				</div>-->
+				
+													<div class="slidecontainer">
+													<div class="start btn btn-success">Start Game</div>
+  <input type="range" min="1" max="100" value="20" class="slider" id="myRange">
+</div>
+				</div>
+
+				</div>	
+				<div class="col-sm-2 col-md-2 col-12"></div>
+			</div>
+			<p style="text-align:center; color:#666;">&copy; FORTHWEGO 2021</p>
+		</div>
+		</div>
+		
+		<script>
+		let roller0;
+		let roller1;
+		let roller2;
+		let rollerStop0=false;
+		let rollerStop1=false;
+		let rollerStop2=false;
+		let stopperu=0;
+		let stopperj=0;
+		let stopperk=0;
+		let speed=1000;
+		let scoreCount=2000; winCount=0,sevenCount=0;
+		const rollingSound=new Audio('sound.mp3');
+		rollingSound.loop=true;
+		rollingSound.muted=true;
+		const pullLevel=new Audio('pull.mp3');
+		pullLevel.muted=true;
+		const winSound=new Audio('machinewin.mp3');
+		winSound.muted=true;
+		let slotContain =['apple','candy','mango','grape','pear','peach','seven'];
+		let selected =[{"box":''},{"box":''},{"box":''}];
+		let scoreLine = localStorage.getItem("slot_scores")
+		
+		if(scoreLine==null){
+		scoreLine={"score":scoreCount,"win":winCount,"seven":sevenCount}
+		scoreLine=JSON.stringify(scoreLine);
+		localStorage.setItem("slot_scores",scoreLine);
+		}else{
+		scoreLine=JSON.parse(scoreLine);
+		scoreCount=scoreLine.score;
+		winCount=scoreLine.win;
+		sevenCount=scoreLine.seven;
+		}
+		 const sleep = (time) =>{
+		return new Promise(resolve => setTimeout(resolve,time));
+		}
+		function createASlot(j,rand){
+		let slot=document.createElement("li");
+		let slotImg=document.createElement("img");
+		slotImg.src="img/"+rand+".jpg";
+		slotImg.alt=slotContain[rand];
+		slot.classList.add("slot-list");
+		let w =document.querySelector(".slot").getBoundingClientRect().width;
+		let slots =document.querySelectorAll(".slot");
+		slots.forEach((s)=>{
+		screen.width>769 ? s.style.height=w-20+"px" : s.style.height=w+"px";
+		});
+		slot.style.width=w+"px";
+		slot.style.height=w+"px";
+		document.querySelector(".canvas").style.height=w+140+"px";
+		document.querySelectorAll(".slot-wraps").forEach((d)=>{
+			d.style.height=w+60+"px";
+		});
+		slot.appendChild(slotImg);
+		return slot;
+		}
+		 function generateSlots(num){
+		 let rand ={
+			 "rand0" : [5,0,6,1,4,3,2],
+			 "rand1" : [1,4,3,5,2,0,6],
+		     "rand2" : [4,3,2,0,6,1,5]
+		 }
+		 
+		  for(let i=0; i<num; i++){
+			for(let j=0; j<7; j++){
+				let slot=createASlot(j,rand["rand"+i][j]);
+				document.querySelectorAll(".slot ul")[i].appendChild(slot);
+			}
+		  }
+		 }
+		  let u=0;
+		 let k=0;
+		 let j=0;
+		 let w =document.querySelector(".slot").getBoundingClientRect().width;
+		let slotsHeight1=w;
+		let slotsHeight2=w;
+		let slotsHeight3=w;
+		let slots = document.querySelectorAll(".slot ul")[0].children;
+	  function rollSlots1(n){
+			let slotsWrap = document.querySelectorAll(".slot ul")[n];
+			let slotChoice = document.querySelectorAll(".slot ul")[n].children;
+				slotsWrap.style.transform="translateY(-"+slotsHeight1+"px)";
+					slotsHeight1+=w;
+					if(u==slots.length){
+					slotsWrap.style.transform="translateY(0px)";
+					slotsHeight1=w;
+					u=0;
+					}
+					selected[0]["box"]=slotChoice[u].children[0].alt;
+				u++;
+	  }
+	  
+	  function rollSlots2(n){
+			let slotsWrap = document.querySelectorAll(".slot ul")[n];
+			let slotChoice = document.querySelectorAll(".slot ul")[n].children;
+				slotsWrap.style.transform="translateY(-"+slotsHeight2+"px)";
+					slotsHeight2+=w;
+					if(k==slots.length){
+					slotsWrap.style.transform="translateY(0px)";
+					slotsHeight2=w;
+					k=0;
+					}
+					
+					selected[1]["box"]=slotChoice[k].children[0].alt;
+				k++;
+	  }
+	  
+	  function rollSlots3(n){
+			let slotsWrap = document.querySelectorAll(".slot ul")[n];
+			let slotChoice = document.querySelectorAll(".slot ul")[n].children;
+				slotsWrap.style.transform="translateY(-"+slotsHeight3+"px)";
+					slotsHeight3+=w;
+					if(j==slots.length){
+					slotsWrap.style.transform="translateY(0px)";
+					slotsHeight3=w;
+					j=0;
+					}
+					selected[2]["box"]=slotChoice[j].children[0].alt;
+				j++;
+	  }
+		
+		 function rollIt(){
+		 roller0 = setInterval(()=>{
+			rollSlots1(0)
+		 },100);
+		 roller1 = setInterval(()=>{
+			rollSlots2(1)	
+		 },100);
+		 
+		 roller2 = setInterval(()=>{
+			rollSlots3(2)	
+		 },100);
+		 }
+		 generateSlots(3);
+		 
+		 let slider = document.getElementById("myRange");
+let slide=false;
+//slider.oninput = function(e){
+
+//}
+
+slider.onchange = function(e){
+
+if(slide==false){
+	selected =[{"box":''},{"box":''},{"box":''}];
+	if(scoreCount>=50){
+	scoreCount=scoreCount-50;
+	setScores(scoreCount,winCount,sevenCount);
+  if(Number(e.target.value)>80){
+	winSound.pause();
+	winSound.currentTime=0;
+	pullLevel.muted=false;
+	pullLevel.play();
+	rollIt();
+	blinkWin(10,"deduct");
+	slide=true;
+	setTimeout(()=>{
+	e.target.value=20;
+	rollingSound.play();
+	rollingSound.muted=false;
+	},100);
+  }
+  }else{
+	e.target.value=20;
+	document.querySelector(".warning-board").innerHTML="You need at least 50 coins to play";
+	document.querySelector(".warning-board").style.opacity=1;
+	setTimeout(()=>{
+	document.querySelector(".warning-board").style.opacity=0;
+	},5000);
+  }
+}else{
+e.target.value=20;
+}
+}
+const start = document.querySelector(".start");
+const button = document.querySelector("body");
+const score = document.querySelector(".collect-scores .score");
+const win = document.querySelector(".collect-win .win");
+const sevenEl = document.querySelector(".collect-seven .seven-num");
+setScores(scoreCount,winCount,sevenCount);
+start.addEventListener("click",(e)=>{
+start.style.display="none";
+});
+button.addEventListener("click",(e)=>{
+if(e.target.classList.contains("stop") || e.target.classList.contains("wrb")){
+let target = Number(e.target.dataset.stop);
+if(slide==true){
+if(target===0){
+clearInterval(roller0);
+rollerStop0=true;
+}else if(target===1){
+rollerStop1=true;
+clearInterval(roller1);
+}else if(target===2){
+clearInterval(roller2);
+rollerStop2=true;
+}
+if(rollerStop0 && rollerStop1 && rollerStop2){
+	getScores();
+	scoreLine = localStorage.getItem("slot_scores")
+	rollerStop0=false;
+	rollerStop1=false;
+	rollerStop2=false;
+	slide=false;
+	selected =[{"box":''},{"box":''},{"box":''}];
+	rollingSound.pause();
+	rollingSound.currentTime=0;
+}
+}
+}
+});
+
+function getScores(){
+let score=0;
+let win=0;
+let seven=0;
+		 if(selected[0]["box"]==selected[1]["box"] || selected[0]["box"]==selected[2]["box"] || selected[1]["box"]==selected[2]["box"]){
+				score=50;
+				blinkWin(score,"scores");
+				winSound.play();
+				winSound.muted=false;
+				if(selected[0]["box"]==selected[1]["box"] && selected[0]["box"]==selected[2]["box"]){
+				score=150;
+				blinkWin(score,"scores");
+				win=1;
+				blinkWin(win,"win");
+				if(selected.every( ev => ev["box"]=='seven')){
+				seven=1;
+				score=300;
+				blinkWin(seven,"seven");
+				}
+				
+				winSound.play();
+				winSound.muted=false;
+		 }
+		 }
+		 scoreCount=scoreCount+score;
+		 winCount=winCount+win;
+		 sevenCount=sevenCount+seven;
+		setScores(scoreCount,winCount,sevenCount);
+		let newScoreLine={"score":scoreCount,"win":winCount,"seven":sevenCount}
+		localStorage.setItem("slot_scores",JSON.stringify(newScoreLine));
+}
+
+function setScores(scoreCount,winCount,sevenCount){
+score.innerHTML=scoreCount;
+win.innerHTML=winCount;
+sevenEl.innerHTML=sevenCount;
+}
+
+function blinkWin(score,type){
+	let ct=0;
+	let lm=20;
+		if(score>0){
+			let blink =setInterval(()=>{
+				let winBack = ct%2==0 ? "rgba(238,196,0,0.5)" : "rgba(0,0,0,0.1)";
+				if(type=="win"){
+				winBack = ct%2==0 ? "rgba(0, 255, 0,0.5)" : "rgba(0,0,0,0.1)";
+				} if(type=="seven" || type=="deduct"){
+				winBack = ct%2==0 ? "rgba(255, 0, 0,0.5)" : "rgba(0,0,0,0.1)";
+				}
+				
+			  document.querySelector(".collect-"+type+" .screen").style.backgroundColor=winBack;
+			  if(ct==13 || (type=="deduct" && ct==3)){
+			  clearInterval(blink);
+			  }
+			  ct++;
+			},200);
+		}
+}
+		</script>
+	</body>
+</html>
